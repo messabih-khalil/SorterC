@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- link -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static' , filename='/css/style.css')}}"
+    />
+    <!-- link icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav>
+      <div class="container navbar">
+        <!-- logo -->
+        <div class="logo">
+          <!-- icon -->
+          <i class="ri-brackets-line"></i>
+          <!-- text -->
+          <span> SorterC </span>
+        </div>
+        <!-- source code -->
+        <div class="source">
+          <i class="ri-github-fill"></i>
+        </div>
+      </div>
+    </nav>
+    <div class="layout container">
+      <!-- main -->
+      <main>
+        <!-- list area -->
+        <div class="list-area">
+          <!-- title -->
+          <div class="header">
+            <div class="title">List >></div>
+            <!-- random button -->
+            <button class="random-button">Random list</button>
+          </div>
+          <!-- textArea -->
+          <div class="array-list">
+            <textarea
+              name=""
+              id="textArea"
+              cols="30"
+              rows="10"
+              placeholder="[1,5,7,4,9,5,88,44,66,22,45,78,12,96,35,57,48,59]"
+            ></textarea>
+          </div>
+        </div>
+        <!-- sorting option -->
+        <div class="sorting-option">
+          <div class="header">
+            <div class="title">Sorted Options >></div>
+          </div>
+          <form class="invisible-checkboxes">
+            <div class="sort-choices">
+              <!-- sort choices -->
+              <input
+                type="checkbox"
+                name="rGroup"
+                value="bubble"
+                id="r1"
+                class="checkBox"
+              />
+              <label class="checkbox-alias bubble-sort" for="r1">
+                Bubble Sort
+              </label>
+              <input
+                type="checkbox"
+                name="rGroup"
+                value="selection"
+                id="r2"
+                class="checkBox"
+              />
+              <label class="checkbox-alias selection-sort" for="r2">
+                Selection Sort
+              </label>
+              <input
+                type="checkbox"
+                name="rGroup"
+                value="insertion"
+                class="checkBox"
+                id="r3"
+              />
+              <label class="checkbox-alias insertion-sort" for="r3">
+                Insertion Sort
+              </label>
+            </div>
+            <!-- submit -->
+            <button id="sendButton">Send</button>
+          </form>
+        </div>
+      </main>
+      <!-- result -->
+      <div class="result">
+        <!-- result box -->
+        <div class="result-box">
+          <!-- header -->
+          <div class="header">
+            <div class="title">Result >></div>
+          </div>
+          <!-- result body -->
+          <div class="result-body">
+            <div class="sorted-result">
+              <p>Sorted Result : <span id="sortResult"></span></p>
+            </div>
+            <!-- executed time -->
+            <div class="execute-time">
+              <p class="time">Executed time :</p>
+              <ul id="execTime"></ul>
+            </div>
+          </div>
+        </div>
+        <!-- result chart -->
+        <div class="chart-box">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- script lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- js file -->
+    <script
+      type="module"
+      src="{{url_for('static' , filename='/js/chart.js')}}"
+    ></script>
+
+    <script
+      type="module"
+      src="{{url_for('static' , filename='/js/script.js')}}"
+    ></script>
+  </body>
+</html>
