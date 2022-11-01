@@ -117,7 +117,8 @@ main {
   font-weight: 500;
   border-radius: 10px;
   background-color: #c4fcf0;
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 form button {
@@ -184,4 +185,29 @@ form button {
 .chart-box canvas {
   height: 100%;
   width: 100%;
+}
+
+@media only screen and (max-width: 890px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .layout main {
+    width: 100%;
+  }
+
+  .layout .result {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .sort-choices {
+    display: flex;
+    flex-direction: column;
+  }
+  .sort-choices label {
+    text-align: center;
+  }
 }
