@@ -4,7 +4,7 @@ from flask import Flask , render_template, request , send_from_directory , jsoni
 
 import os
 
-from lib.handle import SortArray
+from lib.python.handle import SortArray
 
 template_dir = os.path.abspath('./templates')
 
@@ -28,7 +28,7 @@ def sortFunc():
         sorted_list = result[0]
         
         for i in request_result[0]:
-            print(i)
+    
             result = SortArray(request_result[1] , i).sortFunc()
             execution_time = "{:.6f}".format(float(result[1]))
             objectResult = {
@@ -37,6 +37,18 @@ def sortFunc():
             responseResult.append(objectResult)
         
     return jsonify(responseResult)
+
+from lib.python.randomList import unique_random_lst
+
+# random list
+@app.route('/random' , methods=["POST"])
+def generateRandomList():
+    random_list = ''
+    if request.method == "POST":
+        request_result = request.get_json()
+        random_list =  unique_random_lst(int(request_result[0]))
+
+    return jsonify(random_list)
 
 
 if __name__ == "__main__":

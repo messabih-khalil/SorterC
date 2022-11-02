@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SorterC | play with arrays</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://www.computerhope.com/jargon/b/bracket.png"
+    />
     <!-- link -->
     <link
       rel="stylesheet"
@@ -42,7 +47,7 @@
           <div class="header">
             <div class="title">List >></div>
             <!-- random button -->
-            <button class="random-button">Random list</button>
+            <button class="random-button" id="showPopup">Random list</button>
           </div>
           <!-- textArea -->
           <div class="array-list">
@@ -55,12 +60,13 @@
             ></textarea>
           </div>
         </div>
+        <div class="error-messages" id="textAreaError"></div>
         <!-- sorting option -->
         <div class="sorting-option">
           <div class="header">
             <div class="title">Sorted Options >></div>
           </div>
-          <form class="invisible-checkboxes">
+          <div class="invisible-checkboxes">
             <div class="sort-choices">
               <!-- sort choices -->
               <input
@@ -96,7 +102,7 @@
             </div>
             <!-- submit -->
             <button id="sendButton">Send</button>
-          </form>
+          </div>
         </div>
       </main>
       <!-- result -->
@@ -133,12 +139,18 @@
         <div class="popup-title">Generate random list</div>
         <!-- input -->
         <div class="input-body">
-          <input type="number" placeholder="Input length" />
+          <input
+            type="number"
+            placeholder="Input length"
+            id="randomInput"
+            min="0"
+          />
         </div>
+        <div class="error-messages" id="errorMessage"></div>
         <!-- button -->
-        <button>Generate</button>
+        <button id="listGeneratorButton">Generate</button>
         <!-- close button -->
-        <i class="ri-close-circle-line"></i>
+        <i class="ri-close-circle-line" id="closeIcon"></i>
       </div>
     </div>
     <!-- script lib -->
@@ -158,6 +170,21 @@
     <script
       type="module"
       src="{{url_for('static' , filename='/js/script.js')}}"
+    ></script>
+
+    <script
+      type="module"
+      src="{{url_for('static' , filename='/js/popup.js')}}"
+    ></script>
+
+    <script
+      type="module"
+      src="{{url_for('static' , filename='/js/textAreaValidator.js')}}"
+    ></script>
+
+    <script
+      type="module"
+      src="{{url_for('static' , filename='/js/randomGenerator.js')}}"
     ></script>
   </body>
 </html>

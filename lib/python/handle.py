@@ -3,7 +3,7 @@ import os
 
 
 script_dir = os.path.abspath(os.path.dirname(__file__))
-lib_path = os.path.join(script_dir, "clib.so")
+lib_path = os.path.join(script_dir, "../cFunctions/clib.so")
 clib = ctypes.CDLL(lib_path)
 
 

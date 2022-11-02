@@ -1,12 +1,10 @@
 import { chartGenerator } from "./chart.js";
-
+import { textAreaValidator } from "./textAreaValidator.js";
 const sendButton = document.querySelector("#sendButton");
 
 // textArea
 const textArea = document.querySelector("#textArea");
 // checkBoxes
-const checkBoxes = document.querySelectorAll(".checkBox");
-
 // get checked option
 function checkedOption() {
   const checkBoxes = document.querySelectorAll(".checkBox");
@@ -65,8 +63,11 @@ async function sendDataToServer(sortOpt, arr) {
 sendButton.addEventListener("click", e => {
   e.preventDefault();
   let sortOption = checkedOption();
-
-  let array = JSON.parse(textArea.value);
-
-  sendDataToServer(sortOption, array);
+  let array = [];
+  try {
+    array = JSON.parse(textArea.value);
+  } catch (e) {}
+  if (textAreaValidator(array)) {
+    sendDataToServer(sortOption, array);
+  }
 });
