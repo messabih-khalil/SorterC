@@ -76,3 +76,27 @@ float selection(int *tab , int length){
 }
 
 // * insertion sort
+
+float insertion(int *tab , int length){
+    clock_t start, end;
+    start = clock();
+
+    int temp;
+
+    for (int i = 0; i < length; i++)
+    {
+        temp = tab[i];
+        int j = i - 1;
+
+        while (j >= 0 && tab[j] > temp)
+        {
+            tab[j+1] = tab[j];
+            j--;
+        }
+        tab[j+1] = temp;
+    }
+    end = clock();
+    return timerSort(start , end);
+    
+
+}

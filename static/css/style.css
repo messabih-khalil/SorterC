@@ -46,10 +46,11 @@ nav .logo {
   margin-right: 0.5rem;
 }
 
-.source {
+.source a {
   color: greenyellow;
   font-size: 2rem;
   cursor: pointer;
+  text-decoration: none;
 }
 /* layout style */
 .layout {
